@@ -137,9 +137,9 @@ sub _with_js_dir {
    my ( $self, $files, $abs_root ) = @_;
 
    my $js_dir;
-   if ( ref $self->js_dir eq 'STR' ) {
+   if ( !ref $self->js_dir ) {
       $js_dir = Path::Class::Dir->new($_)->absolute( $abs_root );
-   } elsif ( ref $self->js_dir eq 'ArrayRef' ) {
+   } elsif ( ref $self->js_dir eq 'ARRAY' ) {
       $js_dir = Path::Class::Dir->new(@$_)->absolute( $abs_root );
    }
 
