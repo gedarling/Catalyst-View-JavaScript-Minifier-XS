@@ -138,9 +138,9 @@ sub _with_js_dir {
 
    my $js_dir;
    if ( !ref $self->js_dir ) {
-      $js_dir = Path::Class::Dir->new($_)->absolute( $abs_root );
+      $js_dir = Path::Class::Dir->new($self->js_dir)->absolute( $abs_root );
    } elsif ( ref $self->js_dir eq 'ARRAY' ) {
-      $js_dir = Path::Class::Dir->new(@$_)->absolute( $abs_root );
+      $js_dir = Path::Class::Dir->new(@{$self->js_dir})->absolute( $abs_root );
    }
 
    # backcompat only
